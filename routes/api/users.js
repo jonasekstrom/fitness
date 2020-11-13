@@ -33,7 +33,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ errors: [{ msg: "Användaren är redan registrerad" }] });
+          .json({ errors: [{ msg: "Användaren finns redan registrerad" }] });
       }
 
       user = new User({
