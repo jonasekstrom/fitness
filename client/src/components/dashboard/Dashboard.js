@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect } from "react";
+import {Link} from 'react-router-dom';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+
 import { getCurrentProfile } from "../../actions/profile";
 
 function Dashboard({
@@ -21,7 +23,16 @@ function Dashboard({
         <i className="fas fa-user mr"></i>
         Välkommen {user && user.name}
       </p>
-      {profile !== null ? <Fragment>has profile</Fragment> : <Fragment>Create profile</Fragment>}
+      {profile !== null ? (
+        <Fragment>has profile</Fragment>
+      ) : (
+        <Fragment>
+          <p>Du har inte fyllt i din profil, vänligen fyll i denna</p>
+          <Link to='/skapa-profil' className="btn btn-primary my-1">
+            Skapa Profil
+          </Link>
+        </Fragment>
+      )}
     </Fragment>
   );
 }
